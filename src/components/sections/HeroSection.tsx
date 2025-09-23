@@ -87,12 +87,12 @@ export function HeroSection() {
       {/* Main Content */}
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
-          <StaggerContainer className="space-y-8">
+          <StaggerContainer className="space-y-9">
             {/* Badge */}
 
 
             {/* Main Heading */}
-            <div className="space-y-4">
+            <div className="space-y-5">
               <h1 className="text-6xl md:text-8xl font-bold">
                 <span className="block text-gradient-primary">
                   {profile.name.split(' ')[0]}
