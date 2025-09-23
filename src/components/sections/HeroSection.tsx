@@ -90,7 +90,7 @@ export function HeroSection() {
           <StaggerContainer className="space-y-8">
             {/* Badge */}
             <motion.div
-              className="inline-flex items-center px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary glow-primary"
+              className="inline-flex items-center space-y-4 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary glow-primary"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
@@ -244,8 +244,7 @@ export function HeroSection() {
             animate={{ height: [12, 6, 12] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           />
-        </motion.div>
-        <p className="text-xs text-muted-foreground mt-2 text-center">Scroll to explore</p>
+        </motion.div> 
       </motion.div>
     </section>
   );
