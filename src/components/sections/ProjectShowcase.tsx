@@ -1,19 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { ExternalLink, Github, Calendar, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { StaggerContainer } from "@/components/animated/StaggerContainer";
+import { ProjectModal } from "@/components/ui/project-modal";
 import { projects, Project } from "@/data/portfolio";
 
 interface ProjectCardProps {
   project: Project;
   index: number;
+  onOpenModal: (project: Project) => void;
 }
 
-function ProjectCard({ project, index }: ProjectCardProps) {
+function ProjectCard({ project, index, onOpenModal }: ProjectCardProps) {
   const isEven = index % 2 === 0;
 
   return (
@@ -25,37 +28,46 @@ function ProjectCard({ project, index }: ProjectCardProps) {
       {/* Project Visual */}
       <div className="flex-1 relative group">
         <motion.div
-          className="relative glass-card p-8 magnetic"
+          className="relative glass-card p-8 magnetic cursor-pointer"
           whileHover={{ scale: 1.02, rotateY: isEven ? 5 : -5 }}
           transition={{ duration: 0.4 }}
+          onClick={() => onOpenModal(project)}
         >
-          {/* Project Preview Mockup */}
+          {/* Project Image */}
           <div className="aspect-video bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20 rounded-lg border border-border/50 overflow-hidden">
-            <div className="p-6 h-full flex flex-col justify-between">
-              {/* Browser Chrome */}
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="flex space-x-1">
-                  <div className="w-2 h-2 bg-red-500 rounded-full" />
-                  <div className="w-2 h-2 bg-yellow-500 rounded-full" />
-                  <div className="w-2 h-2 bg-green-500 rounded-full" />
+            {project.images && project.images.length > 0 ? (
+              <img
+                src={project.images[0]}
+                alt={project.name}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            ) : (
+              <div className="p-6 h-full flex flex-col justify-between">
+                {/* Browser Chrome */}
+                <div className="flex items-center space-x-2 mb-4">
+                  <div className="flex space-x-1">
+                    <div className="w-2 h-2 bg-red-500 rounded-full" />
+                    <div className="w-2 h-2 bg-yellow-500 rounded-full" />
+                    <div className="w-2 h-2 bg-green-500 rounded-full" />
+                  </div>
+                  <div className="flex-1 h-4 bg-muted/30 rounded ml-4" />
                 </div>
-                <div className="flex-1 h-4 bg-muted/30 rounded ml-4" />
+                
+                {/* Content Preview */}
+                <div className="space-y-3 flex-1">
+                  <div className="h-6 bg-primary/30 rounded w-3/4" />
+                  <div className="space-y-2">
+                    <div className="h-3 bg-muted/40 rounded w-full" />
+                    <div className="h-3 bg-muted/40 rounded w-2/3" />
+                    <div className="h-3 bg-muted/40 rounded w-4/5" />
+                  </div>
+                  <div className="flex space-x-2 pt-4">
+                    <div className="h-8 bg-accent/30 rounded px-4 flex-1" />
+                    <div className="h-8 bg-secondary/30 rounded px-4 flex-1" />
+                  </div>
+                </div>
               </div>
-              
-              {/* Content Preview */}
-              <div className="space-y-3 flex-1">
-                <div className="h-6 bg-primary/30 rounded w-3/4" />
-                <div className="space-y-2">
-                  <div className="h-3 bg-muted/40 rounded w-full" />
-                  <div className="h-3 bg-muted/40 rounded w-2/3" />
-                  <div className="h-3 bg-muted/40 rounded w-4/5" />
-                </div>
-                <div className="flex space-x-2 pt-4">
-                  <div className="h-8 bg-accent/30 rounded px-4 flex-1" />
-                  <div className="h-8 bg-secondary/30 rounded px-4 flex-1" />
-                </div>
-              </div>
-            </div>
+            )}
           </div>
 
           {/* Floating Tech Icons */}
@@ -183,19 +195,15 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
         {/* Action Buttons */}
         <div className="flex flex-wrap gap-4 pt-4">
+          <Button onClick={() => onOpenModal(project)} className="magnetic">
+            <TrendingUp className="w-4 h-4 mr-2" />
+            View Details
+          </Button>
           {project.liveUrl && (
-            <Button asChild className="magnetic">
+            <Button variant="outline" asChild className="magnetic">
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="w-4 h-4 mr-2" />
                 View Live
-              </a>
-            </Button>
-          )}
-          {project.repoUrl && (
-            <Button variant="outline" asChild className="magnetic">
-              <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-                <Github className="w-4 h-4 mr-2" />
-                Source Code
               </a>
             </Button>
           )}
@@ -206,7 +214,19 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 }
 
 export function ProjectShowcase() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const featuredProjects = projects.filter(p => p.featured);
+
+  const handleOpenModal = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
 
   return (
     <section id="projects" className="py-24 bg-gradient-to-b from-background to-muted/20">
@@ -228,15 +248,27 @@ export function ProjectShowcase() {
         {/* Projects Grid */}
         <div className="space-y-24">
           {featuredProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard 
+              key={project.id} 
+              project={project} 
+              index={index}
+              onOpenModal={handleOpenModal}
+            />
           ))}
         </div>
+
+        {/* Project Modal */}
+        <ProjectModal
+          project={selectedProject}
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+        />
 
         {/* View All Projects CTA */}
         <AnimatedSection className="text-center mt-24">
           <Button variant="outline" className="magnetic group">
             View All Projects
-            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <TrendingUp className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Button>
         </AnimatedSection>
       </div>

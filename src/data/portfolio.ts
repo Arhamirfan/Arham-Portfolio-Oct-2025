@@ -63,6 +63,17 @@ export interface Education {
   highlights: string[];
 }
 
+export interface Certificate {
+  id: string;
+  name: string;
+  organization: string;
+  issueDate: string;
+  expiryDate?: string;
+  credentialUrl?: string;
+  imageUrl: string;
+  skills: string[];
+}
+
 export interface Service {
   id: string;
   name: string;
@@ -172,7 +183,7 @@ export const projects: Project[] = [
     ],
     techStack: ["Node.js", "PostgreSQL", "n8n", "OpenAI", "AWS", "SQS FIFO", "Lambda", "Redis"],
     liveUrl: "https://mcgrocer.com/",
-    images: [],
+    images: ["/src/assets/projects/mcgrocer.png"],
     role: "Lead Full Stack Developer",
     impactMetrics: {
       "Performance Improvement": "5x faster",
@@ -194,7 +205,7 @@ export const projects: Project[] = [
     ],
     techStack: ["Next.js", "Python", "Azure", "OpenAI", "NLP"],
     liveUrl: "https://innchatbot-gwdke2ghe3gsgtct.northcentralus-01.azurewebsites.net/",
-    images: [],
+    images: ["/src/assets/projects/abelmed.png"],
     role: "AI Integration Developer",
     impactMetrics: {
       "Response Accuracy": "Domain-specific",
@@ -216,8 +227,8 @@ export const projects: Project[] = [
     ],
     techStack: ["Next.js", "Node.js", "MongoDB", "Web3.js", "Solidity", "AWS S3", "Lambda", "Redis", "Stripe"],
     liveUrl: "http://insid3rs.io/",
-    images: [],
-    role: "Lead Web3 Developer", 
+    images: ["/src/assets/projects/globalpass.png"],
+    role: "Lead Web3 Developer",
     impactMetrics: {
       "Transactions": "10K+",
       "Success Rate": "98%",
@@ -291,6 +302,49 @@ export const education: Education[] = [
       "Graduated with strong foundation in computer science fundamentals",
       "Specialized in software engineering and web development"
     ]
+  }
+];
+
+export const certificates: Certificate[] = [
+  {
+    id: "augersoft-cert",
+    name: "Software Development Internship", 
+    organization: "Augersoft — Blockchain & Mobile",
+    issueDate: "2021-10",
+    imageUrl: "/src/assets/certificates/augersoft.png",
+    skills: ["Flutter", "Firebase", "Mobile Development"]
+  },
+  {
+    id: "python-coursera",
+    name: "Python for Everybody Specialization",
+    organization: "University of Michigan (Coursera)",
+    issueDate: "2021-03",
+    imageUrl: "/src/assets/certificates/python-coursera.png", 
+    skills: ["Python", "Data Structures", "Web Scraping", "Databases"]
+  },
+  {
+    id: "react-coursera", 
+    name: "Front-End Web Development with React",
+    organization: "The Hong Kong University of Science and Technology (Coursera)",
+    issueDate: "2021-07",
+    imageUrl: "/src/assets/certificates/react-coursera.png",
+    skills: ["React", "Redux", "Bootstrap", "JavaScript"]
+  },
+  {
+    id: "bootstrap-coursera",
+    name: "Front-End Web UI Frameworks and Tools: Bootstrap 4", 
+    organization: "The Hong Kong University of Science and Technology (Coursera)",
+    issueDate: "2021-06",
+    imageUrl: "/src/assets/certificates/bootstrap-coursera.png",
+    skills: ["Bootstrap", "CSS", "Responsive Design", "SASS"]
+  },
+  {
+    id: "microsoft-cert",
+    name: "Microsoft Technology Associate: Software Development Fundamentals",
+    organization: "Microsoft",
+    issueDate: "2020-12",
+    imageUrl: "/src/assets/certificates/microsoft.png",
+    skills: [".NET", "C#", "Software Engineering", "Object-Oriented Programming"]
   }
 ];
 

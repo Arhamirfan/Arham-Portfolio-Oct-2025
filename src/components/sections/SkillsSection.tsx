@@ -13,11 +13,11 @@ interface SkillCardProps {
 
 function SkillCard({ skill, index }: SkillCardProps) {
   const categoryColors = {
-    Frontend: "from-blue-500 to-purple-600",
-    Backend: "from-green-500 to-teal-600", 
-    Database: "from-orange-500 to-red-600",
-    DevOps: "from-purple-500 to-pink-600",
-    Tools: "from-yellow-500 to-orange-600",
+    Frontend: "from-primary to-secondary",
+    Backend: "from-secondary to-accent", 
+    Database: "from-accent to-primary",
+    DevOps: "from-secondary to-primary",
+    Tools: "from-accent to-secondary",
   };
 
   const levelPercentage = (skill.level / 5) * 100;
@@ -31,7 +31,7 @@ function SkillCard({ skill, index }: SkillCardProps) {
       whileHover={{ y: -8 }}
     >
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-semibold text-lg">{skill.name}</h3>
+        <h3 className="font-semibold text-lg text-foreground">{skill.name}</h3>
         <Badge variant="outline" className="text-xs">
           {skill.years}y
         </Badge>
@@ -41,7 +41,7 @@ function SkillCard({ skill, index }: SkillCardProps) {
       <div className="mb-4">
         <div className="flex justify-between text-sm mb-2">
           <span className="text-muted-foreground">Proficiency</span>
-          <span className="font-medium">{skill.level}/5</span>
+          <span className="font-medium text-foreground">{skill.level}/5</span>
         </div>
         <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
           <motion.div
@@ -120,8 +120,8 @@ export function SkillsSection() {
           {Object.entries(skillsByCategory).map(([category, categorySkills], categoryIndex) => (
             <AnimatedSection key={category} delay={categoryIndex * 0.2}>
               <div className="mb-8">
-                <h3 className="text-2xl font-bold mb-2 text-gradient-secondary">
-                  {category}
+                <h3 className="text-2xl font-bold mb-2 text-foreground">
+                  <span className="text-gradient-secondary">{category}</span>
                 </h3>
                 <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full" />
               </div>

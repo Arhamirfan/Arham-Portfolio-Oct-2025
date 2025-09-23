@@ -4,15 +4,17 @@ import { ExperienceTimeline } from "@/components/sections/ExperienceTimeline";
 import { ProjectShowcase } from "@/components/sections/ProjectShowcase";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { CertificatesSection } from "@/components/sections/CertificatesSection";
 
 const Index = () => {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Navigation />
       <HeroSection />
-      <ExperienceTimeline />
       <ProjectShowcase />
+      <ExperienceTimeline />
       <SkillsSection />
+      <CertificatesSection />
       <ContactSection />
     </main>
   );
