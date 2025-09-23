@@ -250,7 +250,7 @@ export const projects: Project[] = [
     ],
     techStack: ["Next.js", "Python", "Firebase", "WordPress", "REST APIs"],
     liveUrl: "https://dynamicestimation.net/",
-    images: [],
+    images: ["/src/assets/projects/dynamicestimations.png", "/src/assets/projects/dynamicestimation.png"],
     role: "Full Stack Developer",
     impactMetrics: {
       "Pipeline": "End-to-end",

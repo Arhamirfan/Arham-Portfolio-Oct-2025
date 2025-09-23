@@ -21,21 +21,23 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
         <>
           {/* Backdrop */}
           <motion.div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-start justify-center px-4 pt-20 md:pt-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-          />
-
-          {/* Modal */}
-          <motion.div
-            className="fixed inset-4 md:inset-8 lg:inset-16 z-50 bg-background rounded-2xl shadow-2xl overflow-hidden"
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ type: "spring", damping: 20 }}
           >
+
+            {/* Modal */}
+            <motion.div
+              className="w-full max-w-5xl bg-background rounded-2xl shadow-2xl overflow-hidden z-[70] mx-auto"
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: "spring", damping: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              style={{ maxHeight: 'calc(100vh - 120px)' }}
+            >
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-border">
               <div className="space-y-1">
@@ -55,12 +57,12 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
             {/* Content */}
             <div className="flex flex-col lg:flex-row h-full overflow-hidden">
               {/* Left Side - Image */}
-              <div className="lg:w-1/2 bg-muted/20 flex items-center justify-center p-8">
+              <div className="lg:w-1/2 bg-muted/20 flex items-center justify-center p-4 md:p-8">
                 {project.images && project.images.length > 0 ? (
                   <img
                     src={project.images[0]}
                     alt={project.name}
-                    className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
+                    className="max-w-full max-h-[60vh] md:max-h-[70vh] object-contain rounded-lg shadow-lg"
                   />
                 ) : (
                   <div className="w-full h-64 bg-muted rounded-lg flex items-center justify-center">
@@ -70,7 +72,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
               </div>
 
               {/* Right Side - Details */}
-              <div className="lg:w-1/2 p-6 overflow-y-auto space-y-6">
+              <div className="lg:w-1/2 p-4 md:p-6 overflow-y-auto space-y-6" style={{ maxHeight: '70vh' }}>
                 {/* Project Meta */}
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4 text-sm text-muted-foreground">
@@ -160,6 +162,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                 </div>
               </div>
             </div>
+          </motion.div>
           </motion.div>
         </>
       )}

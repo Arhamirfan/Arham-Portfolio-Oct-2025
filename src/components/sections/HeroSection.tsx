@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { StaggerContainer } from "@/components/animated/StaggerContainer";
 import { profile } from "@/data/portfolio";
-import heroImage from "@/assets/hero-bg.jpg";
 
 export function HeroSection() {
   const scrollToContact = () => {
@@ -20,7 +19,7 @@ export function HeroSection() {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
+      className="relative min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden bg-background pt-20"
     >
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
@@ -29,7 +28,7 @@ export function HeroSection() {
       <div className="absolute inset-0 tech-grid opacity-10 dark:opacity-20" />
       
       {/* Floating Geometric Shapes */}
-      <div className="absolute inset-0 overflow-hidden">
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {Array.from({ length: 8 }).map((_, i) => (
           <motion.div
             key={i}
@@ -60,7 +59,7 @@ export function HeroSection() {
       </div>
 
       {/* Animated Lines */}
-      <div className="absolute inset-0 overflow-hidden">
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {Array.from({ length: 3 }).map((_, i) => (
           <motion.div
             key={`line-${i}`}
@@ -89,11 +88,18 @@ export function HeroSection() {
         <div className="text-center max-w-5xl mx-auto">
           <StaggerContainer className="space-y-9">
             {/* Badge */}
-
+            <motion.div
+              className="inline-flex items-center space-y-4 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary glow-primary"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              🚀 Available for new opportunities
+            </motion.div>
 
             {/* Main Heading */}
             <div className="space-y-5">
-              <h1 className="text-6xl md:text-8xl font-bold">
+              <h1 className="text-3xl sm:text-5xl md:text-8xl font-bold leading-tight break-words">
                 <span className="block text-gradient-primary">
                   {profile.name.split(' ')[0]}
                 </span>
@@ -103,7 +109,7 @@ export function HeroSection() {
               </h1>
               
               <motion.p 
-                className="text-2xl md:text-3xl font-semibold text-muted-foreground"
+                className="text-xl sm:text-2xl md:text-3xl font-semibold text-muted-foreground"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8 }}
@@ -114,7 +120,7 @@ export function HeroSection() {
 
             {/* Description */}
             <motion.p 
-              className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl md:max-w-3xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
@@ -156,7 +162,7 @@ export function HeroSection() {
             >
               <Button 
                 onClick={scrollToProjects}
-                className="btn-hero group min-w-[200px]"
+                className="btn-hero group min-w-[160px] sm:min-w-[200px]"
               >
                 View My Work
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -165,7 +171,7 @@ export function HeroSection() {
               <Button 
                 onClick={scrollToContact}
                 variant="outline" 
-                className="btn-ghost min-w-[200px]"
+                className="btn-ghost min-w-[160px] sm:min-w-[200px]"
               >
                 <Mail className="mr-2 w-4 h-4" />
                 Let's Connect
@@ -207,38 +213,41 @@ export function HeroSection() {
                 </motion.a>
               )}
               
-              <motion.button
-                className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors magnetic"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Download className="w-5 h-5" />
-                <span className="text-sm font-medium">Resume</span>
-              </motion.button>
+              <a target="_blank" href="https://drive.google.com/file/d/1Kb4ClDSx_G-5Lp0t5bAKWg9SIUBnQRT-/view?usp=sharing">
+                <motion.button
+                  className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors magnetic"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Download className="w-5 h-5" />
+                  <span className="text-sm font-medium">Resume</span>
+                </motion.button>
+              
+              </a>
             </motion.div>
           </StaggerContainer>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 0.6 }}
-      >
-        <motion.div
-          className="w-6 h-10 border-2 border-primary rounded-full flex justify-center"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        >
+        
+          {/* Scroll Indicator (inline so it flows below content and doesn't overlap icons) */}
           <motion.div
-            className="w-1 h-3 bg-primary rounded-full mt-2"
-            animate={{ height: [12, 6, 12] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </motion.div> 
-      </motion.div>
+            className="mt-6 flex justify-center mb-6"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2, duration: 0.6 }}
+          >
+            <motion.div
+              className="w-6 h-10 border-2 border-primary rounded-full flex justify-center"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <motion.div
+                className="w-1 h-3 bg-primary rounded-full mt-2"
+                animate={{ height: [12, 6, 12] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              />
+            </motion.div>
+          </motion.div>
+      </div>
     </section>
   );
 }

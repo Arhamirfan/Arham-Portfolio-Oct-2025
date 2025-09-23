@@ -143,10 +143,12 @@ export function Navigation() {
               </Button>
 
               {/* Download Resume */}
-              <Button variant="outline" className="magnetic">
-                <Download className="w-4 h-4 mr-2" />
-                Resume
-              </Button>
+              <a href="https://drive.google.com/file/d/1Kb4ClDSx_G-5Lp0t5bAKWg9SIUBnQRT-/view?usp=sharing" target="_blank">
+                <Button variant="outline" className="magnetic" >
+                  <Download className="w-4 h-4 mr-2" />
+                  Resume
+                </Button>
+              </a>
 
               {/* Contact CTA */}
               <Button className="btn-hero">
