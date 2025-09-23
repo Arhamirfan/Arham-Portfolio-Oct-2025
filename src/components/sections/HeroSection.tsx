@@ -126,7 +126,7 @@ export function HeroSection() {
               transition={{ delay: 1, duration: 0.6 }}
             >
               Building scalable web applications and cloud-native solutions with{" "}
-              <span className="text-primary font-semibold">3+ years of experience</span>.
+              <span className="text-primary font-semibold">4+ years of experience</span>.
               Specialized in modern JavaScript, React ecosystem, and emerging Web3 technologies.
             </motion.p>
 

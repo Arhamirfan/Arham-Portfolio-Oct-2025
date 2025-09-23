@@ -148,7 +148,7 @@ export function SkillsSection() {
                 <div className="text-muted-foreground">Technologies</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-secondary mb-2">3+</div>
+                <div className="text-3xl font-bold text-secondary mb-2">4+</div>
                 <div className="text-muted-foreground">Years Experience</div>
               </div>
               <div>

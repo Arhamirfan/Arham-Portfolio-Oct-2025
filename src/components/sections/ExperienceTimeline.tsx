@@ -18,7 +18,7 @@ export function ExperienceTimeline() {
             Career <span className="text-gradient-primary">Timeline</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            3+ years of building scalable applications, leading development teams, 
+            4+ years of building scalable applications, leading development teams, 
             and delivering impactful solutions across diverse industries.
           </p>
         </AnimatedSection>

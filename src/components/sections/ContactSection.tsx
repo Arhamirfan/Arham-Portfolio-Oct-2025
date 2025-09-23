@@ -16,18 +16,40 @@ export function ContactSection() {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
+
+    try {
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+
+      const res = await fetch(`https://formsubmit.co/ajax/${profile.email}`, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.message || "Form submission failed");
+
       setIsLoading(false);
+      form.reset();
       toast({
         title: "Message sent successfully!",
         description: "I'll get back to you within 24 hours.",
       });
-    }, 1000);
+    } catch (err: any) {
+      setIsLoading(false);
+      toast({
+        title: "Failed to send message",
+        description: err?.message || "Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -125,26 +147,29 @@ export function ContactSection() {
               <h3 className="text-2xl font-bold mb-6">Send Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Formsubmit hidden fields */}
+                <input type="hidden" name="_subject" value="New message from portfolio" />
+                <input type="hidden" name="_captcha" value="false" />
                 <StaggerContainer className="space-y-6">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label className="text-sm font-medium">First Name</label>
-                      <Input placeholder="John" required />
+                      <Input name="firstName" placeholder="John" required />
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium">Last Name</label>
-                      <Input placeholder="Doe" required />
+                      <Input name="lastName" placeholder="Doe" required />
                     </div>
                   </div>
 
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Email</label>
-                    <Input type="email" placeholder="john@example.com" required />
+                    <Input name="email" type="email" placeholder="john@example.com" required />
                   </div>
 
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Project Type</label>
-                    <select className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring">
+                    <select name="projectType" className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring">
                       <option>Full Stack Development</option>
                       <option>Web3 & Blockchain</option>
                       <option>AI Integration</option>
@@ -155,7 +180,7 @@ export function ContactSection() {
 
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Budget Range</label>
-                    <select className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring">
+                    <select name="budgetRange" className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring">
                       <option>$1,000 - $5,000</option>
                       <option>$5,000 - $15,000</option>
                       <option>$15,000 - $50,000</option>
@@ -167,6 +192,7 @@ export function ContactSection() {
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Message</label>
                     <Textarea 
+                      name="message"
                       placeholder="Tell me about your project, timeline, and any specific requirements..."
                       className="min-h-[120px]"
                       required

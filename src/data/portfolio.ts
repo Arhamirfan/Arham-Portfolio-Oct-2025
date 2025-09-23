@@ -88,7 +88,7 @@ export interface Service {
 export const profile: Profile = {
   name: "Arham Irfan",
   title: "Full Stack Developer",
-  summary: "I'm a Full Stack Developer with 3+ years of experience building scalable web apps and cloud-native solutions. I focus on writing secure, efficient code and making sure everything works smoothly across different browsers. I have hands-on experience with responsive design, database architecture, and optimizing relational databases for performance.",
+  summary: "I'm a Full Stack Developer with 4+ years of experience building scalable web apps and cloud-native solutions. I focus on writing secure, efficient code and making sure everything works smoothly across different browsers. I have hands-on experience with responsive design, database architecture, and optimizing relational databases for performance.",
   location: "Lahore, Pakistan",
   email: "arham.irfan4@gmail.com",
   phone: "+92-320-6522050",
@@ -183,7 +183,7 @@ export const projects: Project[] = [
     ],
     techStack: ["Node.js", "PostgreSQL", "n8n", "OpenAI", "AWS", "SQS FIFO", "Lambda", "Redis"],
     liveUrl: "https://mcgrocer.com/",
-    images: ["/src/assets/projects/mcgrocer.png"],
+  images: ["https://res.cloudinary.com/dscwcoqcf/image/upload/v1758662046/mcgrocer_nc0vn1.png"],
     role: "Lead Full Stack Developer",
     impactMetrics: {
       "Performance Improvement": "5x faster",
@@ -205,7 +205,7 @@ export const projects: Project[] = [
     ],
     techStack: ["Next.js", "Python", "Azure", "OpenAI", "NLP"],
     liveUrl: "https://innchatbot-gwdke2ghe3gsgtct.northcentralus-01.azurewebsites.net/",
-    images: ["/src/assets/projects/abelmed.png"],
+  images: ["https://res.cloudinary.com/dscwcoqcf/image/upload/v1747244965/abelmed_vcqi3r.png"],
     role: "AI Integration Developer",
     impactMetrics: {
       "Response Accuracy": "Domain-specific",
@@ -227,7 +227,7 @@ export const projects: Project[] = [
     ],
     techStack: ["Next.js", "Node.js", "MongoDB", "Web3.js", "Solidity", "AWS S3", "Lambda", "Redis", "Stripe"],
     liveUrl: "http://insid3rs.io/",
-    images: ["/src/assets/projects/globalpass.png"],
+  images: ["https://res.cloudinary.com/dscwcoqcf/image/upload/v1747244976/globalpass_c4hrb2.png"],
     role: "Lead Web3 Developer",
     impactMetrics: {
       "Transactions": "10K+",
@@ -250,7 +250,7 @@ export const projects: Project[] = [
     ],
     techStack: ["Next.js", "Python", "Firebase", "WordPress", "REST APIs"],
     liveUrl: "https://dynamicestimation.net/",
-    images: ["/src/assets/projects/dynamicestimations.png", "/src/assets/projects/dynamicestimation.png"],
+  images: ["https://res.cloudinary.com/dscwcoqcf/image/upload/v1758662371/dynamicestimations_twhzvc.png"],
     role: "Full Stack Developer",
     impactMetrics: {
       "Pipeline": "End-to-end",
@@ -311,7 +311,7 @@ export const certificates: Certificate[] = [
     name: "Software Development Internship", 
     organization: "Augersoft — Blockchain & Mobile",
     issueDate: "2021-10",
-    imageUrl: "/src/assets/certificates/augersoft.png",
+    imageUrl: "https://res.cloudinary.com/dscwcoqcf/image/upload/v1747240806/Augersoft_t4ghje.png",
     skills: ["Flutter", "Firebase", "Mobile Development"]
   },
   {
@@ -319,7 +319,7 @@ export const certificates: Certificate[] = [
     name: "Python for Everybody Specialization",
     organization: "University of Michigan (Coursera)",
     issueDate: "2021-03",
-    imageUrl: "/src/assets/certificates/python-coursera.png", 
+    imageUrl: "https://res.cloudinary.com/dscwcoqcf/image/upload/v1747240806/Python_Coursera_jtimru.png", 
     skills: ["Python", "Data Structures", "Web Scraping", "Databases"]
   },
   {
@@ -327,7 +327,7 @@ export const certificates: Certificate[] = [
     name: "Front-End Web Development with React",
     organization: "The Hong Kong University of Science and Technology (Coursera)",
     issueDate: "2021-07",
-    imageUrl: "/src/assets/certificates/react-coursera.png",
+    imageUrl: "https://res.cloudinary.com/dscwcoqcf/image/upload/v1747240805/React_Coursera_sp6tuq.png",
     skills: ["React", "Redux", "Bootstrap", "JavaScript"]
   },
   {
@@ -335,7 +335,7 @@ export const certificates: Certificate[] = [
     name: "Front-End Web UI Frameworks and Tools: Bootstrap 4", 
     organization: "The Hong Kong University of Science and Technology (Coursera)",
     issueDate: "2021-06",
-    imageUrl: "/src/assets/certificates/bootstrap-coursera.png",
+    imageUrl: "https://res.cloudinary.com/dscwcoqcf/image/upload/v1747240805/Bootstrap_Coursera_ievath.png",
     skills: ["Bootstrap", "CSS", "Responsive Design", "SASS"]
   },
   {
@@ -343,7 +343,7 @@ export const certificates: Certificate[] = [
     name: "Microsoft Technology Associate: Software Development Fundamentals",
     organization: "Microsoft",
     issueDate: "2020-12",
-    imageUrl: "/src/assets/certificates/microsoft.png",
+    imageUrl: "https://res.cloudinary.com/dscwcoqcf/image/upload/v1747240806/Microsoft_sbljxb.png",
     skills: [".NET", "C#", "Software Engineering", "Object-Oriented Programming"]
   }
 ];
