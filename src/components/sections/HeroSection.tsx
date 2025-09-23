@@ -213,7 +213,7 @@ export function HeroSection() {
                 </motion.a>
               )}
               
-              <a target="_blank" href="https://drive.google.com/file/d/1Kb4ClDSx_G-5Lp0t5bAKWg9SIUBnQRT-/view?usp=sharing">
+              <a target="_blank" href="https://drive.google.com/file/d/1Xt75ttiCEP9EuE_bThwo2_uG0YB6yNTP/view?usp=sharing">
                 <motion.button
                   className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors magnetic"
                   whileHover={{ scale: 1.1 }}

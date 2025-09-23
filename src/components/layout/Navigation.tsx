@@ -143,7 +143,7 @@ export function Navigation() {
               </Button>
 
               {/* Download Resume */}
-              <a href="https://drive.google.com/file/d/1Kb4ClDSx_G-5Lp0t5bAKWg9SIUBnQRT-/view?usp=sharing" target="_blank">
+              <a href="https://drive.google.com/file/d/1Xt75ttiCEP9EuE_bThwo2_uG0YB6yNTP/view?usp=sharing" target="_blank">
                 <Button variant="outline" className="magnetic" >
                   <Download className="w-4 h-4 mr-2" />
                   Resume
