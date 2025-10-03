@@ -32,7 +32,7 @@ export function AboutSection() {
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground mb-1">Title</div>
-                  <div className="text-foreground font-medium">{profile.title}</div>
+                  <div className="text-foreground font-medium">Full Stack Web Developer (MERN Stack) + AI Chatbot Architect + n8n Automation Engineer</div>
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground mb-1">Location</div>

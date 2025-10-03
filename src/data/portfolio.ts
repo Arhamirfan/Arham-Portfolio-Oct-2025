@@ -100,7 +100,7 @@ export interface Testimonial {
 // Portfolio Data - Extracted from Arham's CV
 export const profile: Profile = {
   name: "Arham Irfan",
-  title: "Full Stack Developer",
+  title: "Full Stack Web Developer (MERN Stack) + AI Chatbot Architect",
   summary: "I'm a Full Stack Developer with 4+ years of experience building scalable web apps and cloud-native solutions. I focus on writing secure, efficient code and making sure everything works smoothly across different browsers. I have hands-on experience with responsive design, database architecture, and optimizing relational databases for performance.",
   location: "Lahore, Pakistan",
   email: "arham.irfan4@gmail.com",
