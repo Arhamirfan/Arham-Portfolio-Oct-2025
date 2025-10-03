@@ -55,7 +55,7 @@ export function AboutSection() {
                   <div className="flex items-center gap-4">
                   {profile.socials.upwork && (
                       <a href={profile.socials.upwork} target="_blank" rel="noreferrer" className="text-primary hover:underline">
-                        LinkedIn
+                        Upwork
                       </a>
                     )}
                     {profile.socials.linkedin && (
@@ -66,6 +66,11 @@ export function AboutSection() {
                     {profile.socials.github && (
                       <a href={profile.socials.github} target="_blank" rel="noreferrer" className="text-primary hover:underline">
                         GitHub
+                      </a>
+                    )}
+                    {profile.socials.instagram && (
+                      <a href={profile.socials.instagram} target="_blank" rel="noreferrer" className="text-primary hover:underline">
+                        Instagram
                       </a>
                     )}
                   </div>
