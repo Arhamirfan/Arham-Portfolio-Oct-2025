@@ -241,7 +241,7 @@ export function ProjectShowcase() {
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Explore my recent work showcasing expertise in full-stack development, 
-            Web3 technologies, AI integration, and cloud architecture.
+            AI integration, Web3 technologies and cloud architecture.
           </p>
         </AnimatedSection>
 

@@ -148,7 +148,7 @@ export function HeroSection() {
                 </span>
                 <span className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-accent rounded-full animate-glow-pulse" />
-                  <span>Web3 & AI</span>
+                  <span>AI & Web3</span>
                 </span>
               </div>
             </motion.div>

@@ -42,6 +42,7 @@ export function ContactSection() {
         title: "Message sent successfully!",
         description: "I'll get back to you within 24 hours.",
       });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setIsLoading(false);
       toast({
@@ -171,8 +172,8 @@ export function ContactSection() {
                     <label className="text-sm font-medium">Project Type</label>
                     <select name="projectType" className="w-full px-3 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring">
                       <option>Full Stack Development</option>
-                      <option>Web3 & Blockchain</option>
                       <option>AI Integration</option>
+                      <option>Web3 & Blockchain</option>
                       <option>Consultation</option>
                       <option>Other</option>
                     </select>
