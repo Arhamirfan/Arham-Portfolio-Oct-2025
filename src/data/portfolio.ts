@@ -47,9 +47,11 @@ export interface Profile {
   email: string;
   phone: string;
   socials: {
+    upwork?: string;
     linkedin?: string;
     github?: string;
     portfolio?: string;
+    instagram?: string;
   };
   avatarUrl?: string;
 }
@@ -84,6 +86,17 @@ export interface Service {
   ctaText: string;
 }
 
+export interface Testimonial {
+  id: string;
+  name: string;
+  role: string;
+  company?: string;
+  avatarUrl?: string;
+  quote: string;
+  rating?: number; // 1-5
+  link?: string;
+}
+
 // Portfolio Data - Extracted from Arham's CV
 export const profile: Profile = {
   name: "Arham Irfan",
@@ -93,8 +106,10 @@ export const profile: Profile = {
   email: "arham.irfan4@gmail.com",
   phone: "+92-320-6522050",
   socials: {
+    upwork: "https://www.upwork.com/freelancers/~017c884ad02736242a",
     linkedin: "https://linkedin.com/in/arham-irfan",
     github: "https://github.com/arham-irfan",
+    instagram: "https://www.instagram.com/arhamirfanx_x/?hl=id",
   },
 };
 
@@ -226,7 +241,7 @@ export const projects: Project[] = [
       "Improved performance via Next.js SSR/ISR, Redis caching, AWS S3 optimization"
     ],
     techStack: ["Next.js", "Node.js", "MongoDB", "Web3.js", "Solidity", "AWS S3", "Lambda", "Redis", "Stripe"],
-    liveUrl: "http://insid3rs.io/",
+    liveUrl: "http://insid3rs.vercel.app/",
   images: ["https://res.cloudinary.com/dscwcoqcf/image/upload/v1747244976/globalpass_c4hrb2.png"],
     role: "Lead Web3 Developer",
     impactMetrics: {
@@ -257,7 +272,7 @@ export const projects: Project[] = [
       "Automation": "Email campaigns",
       "Analytics": "Real-time dashboards"
     },
-    featured: false
+    featured: true
   }
 ];
 
@@ -269,27 +284,30 @@ export const skills: Skill[] = [
   { id: "typescript", name: "TypeScript", category: "Frontend", level: 4, years: 2, keywords: ["Type Safety", "Generics"] },
   { id: "tailwind", name: "Tailwind CSS", category: "Frontend", level: 5, years: 2, keywords: ["Utility-first", "Responsive"] },
   { id: "html5", name: "HTML5", category: "Frontend", level: 5, years: 3, keywords: ["Semantic", "Accessibility"] },
-  
+
   // Backend
-  { id: "nodejs", name: "Node.js", category: "Backend", level: 5, years: 3, keywords: ["Runtime", "NPM"] },
+  { id: "nodejs", name: "Node.js", category: "Backend", level: 5, years: 3, keywords: ["Runtime", "NPM", "GraphQL"] },
   { id: "express", name: "Express.js", category: "Backend", level: 5, years: 3, keywords: ["REST API", "Middleware"] },
-  { id: "python", name: "Python", category: "Backend", level: 4, years: 2, keywords: ["Automation", "AI Integration"] },
-  
+  { id: "python", name: "Python", category: "Backend", level: 4, years: 2, keywords: ["Automation", "AI Integration", "Machine Learning"] },
+
   // Databases  
   { id: "postgresql", name: "PostgreSQL", category: "Database", level: 4, years: 2, keywords: ["Relational", "Performance"] },
   { id: "mongodb", name: "MongoDB", category: "Database", level: 5, years: 3, keywords: ["NoSQL", "Mongoose"] },
   { id: "redis", name: "Redis", category: "Database", level: 4, years: 2, keywords: ["Caching", "Sessions"] },
-  
+
   // DevOps
-  { id: "aws", name: "AWS", category: "DevOps", level: 4, years: 2, keywords: ["S3", "Lambda", "EC2"] },
-  { id: "azure", name: "Azure", category: "DevOps", level: 3, years: 1, keywords: ["Cloud Services", "Deployment"] },
-  { id: "docker", name: "Docker", category: "DevOps", level: 3, years: 1, keywords: ["Containerization"] },
-  
+  { id: "aws", name: "AWS", category: "DevOps", level: 4, years: 2, keywords: ["S3", "Lambda", "EC2", "AWS Functions"] },
+  { id: "azure", name: "Azure", category: "DevOps", level: 3, years: 1, keywords: ["Cloud Services", "Deployment", "Azure Functions"] },
+  { id: "docker", name: "Docker", category: "DevOps", level: 3, years: 1, keywords: ["Containerization", "Kubernetes"] },
+
   // Tools
-  { id: "web3", name: "Web3.js", category: "Tools", level: 4, years: 1, keywords: ["Blockchain", "Smart Contracts"] },
-  { id: "openai", name: "OpenAI", category: "Tools", level: 4, years: 1, keywords: ["GPT", "AI Integration"] },
-  { id: "stripe", name: "Stripe", category: "Tools", level: 4, years: 2, keywords: ["Payments", "Webhooks"] }
+  { id: "web3", name: "Web3.js", category: "Tools", level: 4, years: 1, keywords: ["Blockchain", "Smart Contracts", "Ether.js", "Decentralized Applications (DApps)", "Ethereum", "Polygon Matic"] },
+  { id: "openai", name: "OpenAI", category: "Tools", level: 4, years: 1, keywords: ["GPT", "AI Integration", "NLP"] },
+  { id: "stripe", name: "Stripe", category: "Tools", level: 4, years: 2, keywords: ["Payments", "Webhooks", "Payment Gateway Integration", "E-commerce"] },
+  { id: "solidity", name: "Solidity", category: "Tools", level: 4, years: 1, keywords: ["Smart Contracts", "Ethereum"] },
+  { id: "bullmq", name: "BullMQ", category: "Tools", level: 4, years: 1, keywords: ["Task Queues", "Asynchronous"] }
 ];
+
 
 export const education: Education[] = [
   {
@@ -353,7 +371,7 @@ export const services: Service[] = [
     id: "fullstack-dev",
     name: "Full Stack Web Development",
     description: "End-to-end web application development using modern technologies like React, Next.js, Node.js, and cloud platforms.",
-    priceFrom: 2000,
+    priceFrom: 1000,
     deliverables: [
       "Responsive web application",
       "Database design & optimization", 
@@ -369,7 +387,7 @@ export const services: Service[] = [
     id: "web3-development",
     name: "Web3 & Blockchain Development", 
     description: "Build decentralized applications, smart contracts, and integrate blockchain functionality into existing systems.",
-    priceFrom: 3000,
+    priceFrom: 2500,
     deliverables: [
       "Smart contract development",
       "Web3 wallet integration",
@@ -396,5 +414,35 @@ export const services: Service[] = [
     ],
     timeline: "3-6 weeks",
     ctaText: "Automate with AI"
+  }
+];
+
+export const testimonials: Testimonial[] = [
+  {
+    id: "mcgrocer-client",
+    name: "Operations Director",
+    role: "McGrocer",
+    company: "McGrocer",
+    quote: "Arham architected an automation pipeline that cut our manual effort drastically. The new system carts faster and more reliably than our previous process.",
+    rating: 4,
+    link: "https://mcgrocer.com/"
+  },
+  {
+    id: "insid3rs-founder",
+    name: "Product Lead",
+    role: "Global Pass (INSID3RS.IO)",
+    company: "INSID3RS",
+    quote: "Delivered a production-ready NFT ticketing platform with seamless Web3 and fiat integration. Onboarding friction dropped significantly.",
+    rating: 5,
+    link: "http://insid3rs.vercel.app/"
+  },
+  {
+    id: "dynamicestimation-owner",
+    name: "Founder",
+    role: "Dynamic Estimations",
+    company: "Dynamic Estimations",
+    quote: "End-to-end CRM and dashboards gave us visibility and improved response times. Exactly what we needed to scale our operations.",
+    rating: 5,
+    link: "https://dynamicestimation.net/"
   }
 ];
